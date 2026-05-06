@@ -1,4 +1,4 @@
-from light import Light
+﻿from light import Light
 import csv
 
 
@@ -9,9 +9,13 @@ class libraryextension:
 		self.Show = tdu.Dependency([])
 
 		if self.ownerComp.par.Showfilepath.val:
-			self.LoadShow()
+			self._load_show()
+		
+		self._parameters_callbacks = {
+			'Loadshow': self._load_show
+		}
 
-	def LoadShow(self):
+	def _load_show(self):
 		path = self.ownerComp.par.Showfilepath.eval()
 		if not path:
 			debug("[ShowManager] No ShowFilePath set.")
@@ -30,6 +34,12 @@ class libraryextension:
 			debug(f"[ShowManager] File not found: {path}")
 		except Exception as e:
 			debug(f"[ShowManager] Error loading show: {e}")
+	
+	def ParameterCallback(self, par):
+		callback = self._parameters_callbacks.get(par.name)
+		if callback:
+			debug('called callback for parameter: ' + par.name)
+			callback()
 
 	def GetLight(self, light_id: int):
 		for light in self.Show.val:
@@ -49,3 +59,4 @@ class libraryextension:
 	@property
 	def FixturesPoints(self) -> nullPOP:
 		return self.ownerComp.op('null_show_points')
+

@@ -23,5 +23,5 @@ if "%VIRTUAL_ENV%" == "" (
     echo Virtual environment activated.
 )
 echo Starting DNB BeatDetection
-python.exe "C:/Users/amash/Eliyzium/scripts/DBNBeatTrackerOSC.py" --osc_serverip 127.0.0.1 --osc_serverport 7088 online --device 0
+python.exe "C:/Users/catsv/Projects/Eliyzium/scripts/DBNBeatTrackerOSC.py" --osc_serverip 127.0.0.1 --osc_serverport 7088 online --device 0
 pause
