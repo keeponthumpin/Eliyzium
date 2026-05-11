@@ -5,7 +5,7 @@ echo Changed directory to: %CD%
 set "PIP_DISABLE_PIP_VERSION_CHECK=1"
 if not exist venv_madmonTD (
     echo Creating Python venv at: C:/Users/8DOF/Documents/8DOF_GUI/data/madmom\venv_madmonTD
-    "None" -m venv venv_madmonTD
+    "C:/Users/8DOF/AppData/Local/Programs/Python/Python39/python.exe" -m venv venv_madmonTD
 ) else (
     echo Virtual environment already exists at: C:/Users/8DOF/Documents/8DOF_GUI/data/madmom\venv_madmonTD
 )
@@ -23,5 +23,5 @@ if "%VIRTUAL_ENV%" == "" (
     echo Virtual environment activated.
 )
 echo Starting DNB BeatDetection
-python.exe "C:/Users/catsv/Projects/Eliyzium/scripts/DBNBeatTrackerOSC.py" --osc_serverip 127.0.0.1 --osc_serverport 7088 online --device 0
+python.exe "C:/Users/8DOF/Desktop/ElysiumV2/Elysium-git/Eliyzium/scripts/DBNBeatTrackerOSC.py" --osc_serverip 127.0.0.1 --osc_serverport 7088 online --device 0
 pause
